@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+    - Ubuntu1604-CIS
