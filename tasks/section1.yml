@@ -4,7 +4,7 @@
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install cramfs(\\s|$)"
       line: "install cramfs /bin/true"
-      state: present
+#       state: present
       owner: root
       group: root
       mode: 0644
@@ -38,7 +38,7 @@
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install freevxfs"
       line: "install freevxfs /bin/true"
-      state: present
+#       state: present
       create: true
   when:
       - ubuntu1604cis_rule_1_1_1_2
@@ -69,7 +69,7 @@
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install jffs2(\\s|$)"
       line: "install jffs2 /bin/true"
-      state: present
+#       state: present
       create: true
   when:
       - ubuntu1604cis_rule_1_1_1_3
@@ -100,7 +100,7 @@
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install hfs(\\s|$)"
       line: "install hfs /bin/true"
-      state: present
+#       state: present
       create: true
   when:
       - ubuntu1604cis_rule_1_1_1_4
@@ -131,7 +131,7 @@
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install hfsplus(\\s|$)"
       line: "install hfsplus /bin/true"
-      state: present
+#       state: present
       create: true
   when:
       - ubuntu1604cis_rule_1_1_1_5
@@ -162,7 +162,7 @@
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install squashfs(\\s|$)"
       line: "install squashfs /bin/true"
-      state: present
+#       state: present
       create: true
   when:
       - ubuntu1604cis_rule_1_1_1_6
@@ -193,7 +193,7 @@
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install udf(\\s|$)"
       line: "install udf /bin/true"
-      state: present
+#       state: present
       create: true
   when:
       - ubuntu1604cis_rule_1_1_1_7
@@ -224,7 +224,7 @@
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install vfat(\\s|$)"
       line: "install vfat /bin/true"
-      state: present
+#       state: present
       create: true
   when:
       - ubuntu1604cis_rule_1_1_1_8
@@ -259,8 +259,8 @@
       mode: 0644
       force: true
       remote_src: true
-  notify:
-      - systemd restart tmp.mount
+#   notify:
+#       - systemd restart tmp.mount
   when:
       - ubuntu1604cis_rule_1_1_2
       - not ubuntu1604cis_skip_for_travis
@@ -273,7 +273,7 @@
 - name: "SCORED | 1.1.2 | PATCH | Ensure separate partition exists for /tmp | enable and start/restart tmp.mount"
   systemd:
       name: tmp.mount
-      daemon_reload: yes
+#       daemon_reload: yes
       enabled: yes
       masked: no
       state: started
@@ -298,8 +298,8 @@
   with_items:
       - "{{ tmp_mount_file[ansible_os_family] }}"
       - /etc/systemd/system/tmp.mount
-  notify:
-      - systemd restart tmp.mount
+#   notify:
+#       - systemd restart tmp.mount
   when:
       - ubuntu1604cis_rule_1_1_3
       - ubuntu1604cis_rule_1_1_4
