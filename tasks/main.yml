@@ -22,10 +22,10 @@
       - prelim_tasks
       - always
 
-# - include: section1.yml
-#   become: true
-#   when: ubuntu1604cis_section1
-#   tags: section1
+- include: section1.yml
+  become: true
+  when: ubuntu1604cis_section1
+  tags: section1
 
 - include: section2.yml
   become: true
