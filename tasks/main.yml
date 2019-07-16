@@ -32,10 +32,10 @@
   when: ubuntu1604cis_section2
   tags: section2
 
-- include: section3.yml
-  become: true
-  when: ubuntu1604cis_section3
-  tags: section3
+# - include: section3.yml
+#   become: true
+#   when: ubuntu1604cis_section3
+#   tags: section3
 
 - include: section4.yml
   become: true
